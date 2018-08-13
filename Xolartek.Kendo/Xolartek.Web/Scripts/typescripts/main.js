@@ -2,8 +2,18 @@ var Xolartek;
 (function (Xolartek) {
     var Utils = (function () {
         function Utils() {
-            this.ApplicationName = "";
         }
+        Utils.prototype.setCallback = function (callback) {
+            this.myMessageCallback = callback;
+        };
+        Utils.prototype.outputMessage = function (msg) {
+            if (this.myMessageCallback) {
+                this.myMessageCallback(msg);
+            }
+            else {
+                document.getElementById("pnlMessage").innerHTML += msg + "<br />";
+            }
+        };
         Utils.prototype.GenerateGUID = function () {
             var result = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
                 var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -17,12 +27,15 @@ var Xolartek;
 })(Xolartek || (Xolartek = {}));
 var utilities = new Xolartek.Utils();
 window.onload = function () {
-    var pnlMsg = document.getElementById('pnlMessage');
     var result = utilities.GenerateGUID();
-    pnlMsg.innerHTML = "<h5>" + result + "</h5>";
+    utilities.outputMessage("<h5>" + result + "</h5>");
     utilities.ApplicationName = "Xolartek-Kendo";
-    console.log(utilities.ApplicationName);
+    utilities.setCallback(LogMessage);
+    utilities.outputMessage(utilities.ApplicationName);
 };
+function LogMessage(message) {
+    console.log(message);
+}
 System.register("gridoptns", [], function (exports_1, context_1) {
     "use strict";
     var GridOpts;

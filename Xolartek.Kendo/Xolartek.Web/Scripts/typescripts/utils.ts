@@ -1,8 +1,19 @@
-﻿namespace Xolartek {
+﻿type StringNumberOrBoolean = string | number | boolean;
+type msgCallback = (string) => void;
+
+namespace Xolartek {
     export class Utils {
-        public ApplicationName: string;
-        constructor() {
-            this.ApplicationName = "";
+        private myMessageCallback: msgCallback;
+        public setCallback(callback: msgCallback) {
+            this.myMessageCallback = callback;
+        }
+        public outputMessage(msg: StringNumberOrBoolean): void
+        public outputMessage(msg: any): void {
+            if (this.myMessageCallback) {
+                this.myMessageCallback(msg);
+            } else {
+                document.getElementById("pnlMessage").innerHTML += msg + "<br />";
+            }
         }
         public GenerateGUID(): string {
             var result: string = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c: any): string {
