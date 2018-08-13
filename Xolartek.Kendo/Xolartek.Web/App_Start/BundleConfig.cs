@@ -20,7 +20,9 @@ namespace Xolartek.Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/system.js"
+                      ));
 
             bundles.Add(new ScriptBundle("~/bundles/kendo-ui").Include(
                       "~/Scripts/Kendo/2018.2.620/kendo.all.min.js"));
