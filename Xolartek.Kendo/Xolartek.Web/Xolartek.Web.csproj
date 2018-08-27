@@ -61,6 +61,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.3\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
@@ -134,10 +142,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FortniteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HeroVM.cs" />
+    <Compile Include="Models\Repository.cs" />
+    <Compile Include="Models\SkillVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,7 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Fortnite\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -235,6 +247,16 @@
     <TypeScriptCompile Include="Scripts\typescripts\app.ts" />
     <TypeScriptCompile Include="Scripts\typescripts\gridoptns.ts" />
     <TypeScriptCompile Include="Scripts\typescripts\utils.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xolartek.Core\Xolartek.Core.csproj">
+      <Project>{0ef05002-2213-43bc-8481-2d212cdfc85f}</Project>
+      <Name>Xolartek.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xolartek.ORM\Xolartek.ORM.csproj">
+      <Project>{3760b979-3771-49a6-ac09-d17caeedfc02}</Project>
+      <Name>Xolartek.ORM</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
