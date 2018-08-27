@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xolartek.Web", "Xolartek.Web\Xolartek.Web.csproj", "{81868967-013C-461E-89B6-CE3D269EB017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xolartek.Core", "Xolartek.Core\Xolartek.Core.csproj", "{0EF05002-2213-43BC-8481-2D212CDFC85F}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Xolartek.Data", "Xolartek.Data\Xolartek.Data.sqlproj", "{D6D3239B-0027-4C3E-92C0-2640487741A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xolartek.ORM", "Xolartek.ORM\Xolartek.ORM.csproj", "{3760B979-3771-49A6-AC09-D17CAEEDFC02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,20 @@ Global
 		{81868967-013C-461E-89B6-CE3D269EB017}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81868967-013C-461E-89B6-CE3D269EB017}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81868967-013C-461E-89B6-CE3D269EB017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EF05002-2213-43BC-8481-2D212CDFC85F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EF05002-2213-43BC-8481-2D212CDFC85F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EF05002-2213-43BC-8481-2D212CDFC85F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EF05002-2213-43BC-8481-2D212CDFC85F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D3239B-0027-4C3E-92C0-2640487741A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D3239B-0027-4C3E-92C0-2640487741A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D3239B-0027-4C3E-92C0-2640487741A2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D6D3239B-0027-4C3E-92C0-2640487741A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D3239B-0027-4C3E-92C0-2640487741A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D3239B-0027-4C3E-92C0-2640487741A2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3760B979-3771-49A6-AC09-D17CAEEDFC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3760B979-3771-49A6-AC09-D17CAEEDFC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3760B979-3771-49A6-AC09-D17CAEEDFC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3760B979-3771-49A6-AC09-D17CAEEDFC02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
