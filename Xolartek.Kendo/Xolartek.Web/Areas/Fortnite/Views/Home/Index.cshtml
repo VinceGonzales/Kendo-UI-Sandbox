@@ -21,7 +21,7 @@
             @(Html.Kendo().Grid<HeroVM>().Name("Heroes")
                     .Columns(columns =>
                     {
-                        columns.Bound(p => p.ImgUrl).ClientTemplate(@"<img src='"+ @Url.Content("#:data.ImgUrl#") +"' style='width:80px;' />").Width(80);
+                        columns.Bound(p => p.ImgUrl).Title(" ").ClientTemplate(@"<img src='"+ @Url.Content("#:data.ImgUrl#") +"' style='width:80px;' />").Width(80);
                         columns.Bound(p => p.Name).Title("Name").Width(80);
                         columns.Bound(p => p.Rarity).Title("Rarity").Width(80);
                         columns.Bound(p => p.Level).Title("Level").Width(80);
@@ -44,7 +44,7 @@
     function StarLabel(data) {
         var result = '';
         for(var i=0;i<data;i++) {
-            result += "<span class='k-icon k-i-star k-i-bookmark'></span>";
+            result += "<span class='k-icon k-i-custom'></span>";
         }
         return result;
     }
