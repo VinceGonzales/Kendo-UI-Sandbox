@@ -24,7 +24,7 @@
                         columns.Bound(p => p.Name).Title("Name").Width(80);
                         columns.Bound(p => p.Rarity).Title("Rarity").Width(80);
                         columns.Bound(p => p.Level).Title("Level").Width(80);
-                        columns.Bound(p => p.Stars).Title(" ").Width(80);
+                        columns.Bound(p => p.Stars).ClientTemplate("#=StarLabel(data.Stars)#").Width(80);
                     })
                     .HtmlAttributes(new { style = "height: 400px;" })
                     .Sortable()
@@ -39,5 +39,13 @@
     </div>
 </div>
 @section scripts {
-
+<script>
+    function StarLabel(data) {
+        var result = '';
+        for(var i=0;i<data;i++) {
+            result += "<span class='k-icon k-i-star k-i-bookmark'></span>";
+        }
+        return result;
+    }
+</script>
 }

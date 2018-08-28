@@ -153,6 +153,7 @@
     <Compile Include="Models\HeroVM.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\SkillVM.cs" />
+    <Compile Include="Models\Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
