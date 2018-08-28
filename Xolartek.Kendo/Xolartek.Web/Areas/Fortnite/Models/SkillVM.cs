@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Xolartek.Web.Models
+namespace Xolartek.Web.Fortnite.Models
 {
     public class SkillVM
     {

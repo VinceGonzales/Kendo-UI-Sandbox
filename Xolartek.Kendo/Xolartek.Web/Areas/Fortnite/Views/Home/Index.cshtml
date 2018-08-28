@@ -1,7 +1,7 @@
-﻿@using Xolartek.Web.Models
+﻿@using Xolartek.Web.Fortnite.Models
 
 @{
-    Layout = "~/Views/Shared/_Layout2013.cshtml";
+    Layout = "~/Areas/Fortnite/Views/Shared/_Layoutv2013.cshtml";
     ViewBag.Title = "Fortnite";
 }
 @section header {
@@ -9,7 +9,7 @@
 }
 <div class="container">
     <div class="row">
-        <div class="col-12"><h4>Kendo-UI</h4></div>
+        <div class="col-12"><h4>Fortnite</h4></div>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -21,6 +21,7 @@
             @(Html.Kendo().Grid<HeroVM>().Name("Heroes")
                     .Columns(columns =>
                     {
+                        columns.Bound(p => p.ImgUrl).ClientTemplate(@"<img src='"+ @Url.Content("#:data.ImgUrl#") +"' style='width:80px;' />").Width(80);
                         columns.Bound(p => p.Name).Title("Name").Width(80);
                         columns.Bound(p => p.Rarity).Title("Rarity").Width(80);
                         columns.Bound(p => p.Level).Title("Level").Width(80);
@@ -32,14 +33,14 @@
                     .DataSource(dataSource => dataSource
                         .Ajax()
                         .Model(model => model.Id(a => a.Id))
-                        .Read(read => read.Action("LoadHeroesList", "Fortnite", Model))
+                        .Read(read => read.Action("LoadHeroesList", "Home", Model))
                     )
             )
         </div>
     </div>
 </div>
 @section scripts {
-<script>
+    <script>
     function StarLabel(data) {
         var result = '';
         for(var i=0;i<data;i++) {
@@ -47,5 +48,5 @@
         }
         return result;
     }
-</script>
+    </script>
 }

@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using Xolartek.Core.Fortnite;
 using Xolartek.ORM;
-using Xolartek.Web.Models;
+using Xolartek.Web.Fortnite.Models;
 
-namespace Xolartek.Web.Controllers
+namespace Xolartek.Web.Fortnite.Controllers
 {
-    public class FortniteController : Controller
+    public class HomeController : Controller
     {
         public ActionResult Index()
         {
@@ -19,7 +19,7 @@ namespace Xolartek.Web.Controllers
             Repository repo = new Repository(new XolarDatabase());
             List<Hero> heroes = repo.GetHeroes();
             List<HeroVM> result = new List<HeroVM>();
-            foreach(Hero hero in heroes)
+            foreach (Hero hero in heroes)
             {
                 HeroVM vm = new HeroVM();
                 vm.Id = hero.Id;

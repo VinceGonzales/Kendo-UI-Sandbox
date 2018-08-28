@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Xolartek.Web.Models
+namespace Xolartek.Web.Fortnite.Models
 {
     public class HeroVM
     {
