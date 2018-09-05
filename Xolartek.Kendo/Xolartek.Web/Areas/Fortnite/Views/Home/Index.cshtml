@@ -27,7 +27,7 @@
                         columns.Bound(p => p.Level).Title("Level").Width(80);
                         columns.Bound(p => p.Stars).ClientTemplate("#=StarLabel(data.Stars)#").Width(80);
                     })
-                    .HtmlAttributes(new { style = "height: 400px;" })
+                    .HtmlAttributes(new { style = "height: 500px;" })
                     .Sortable()
                     .Scrollable(s => s.Height("auto"))
                     .DataSource(dataSource => dataSource
