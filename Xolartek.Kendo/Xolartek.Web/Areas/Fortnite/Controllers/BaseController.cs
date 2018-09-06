@@ -39,5 +39,36 @@ namespace Xolartek.Web.Fortnite.Controllers
                 return Json(result.ToDataSourceResult(request));
             }
         }
+        public ActionResult LoadSchematicList([DataSourceRequest] DataSourceRequest request)
+        {
+            using (Repository repo = new Repository(new XolarDatabase()))
+            {
+                List<SchematicVM> result = new List<SchematicVM>();
+                List<Schematic> schematics = repo.GetSchematics();
+                foreach (Schematic sch in schematics)
+                {
+                    SchematicVM vm = new SchematicVM();
+                    vm.id = sch.Id;
+                    vm.name = sch.Name;
+                    vm.imgurl = sch.Picture.Source;
+                    vm.level = sch.Level;
+                    vm.stars = sch.Stars;
+                    vm.description = sch.Description;
+                    vm.stat = new List<stat>();
+
+                    List<TraitImpact> impacts = repo.GetTraitImpacts(sch.Id);
+                    foreach (TraitImpact ti in impacts)
+                    {
+                        stat s = new stat();
+                        s.name = ti.Trait.Description;
+                        s.value = ti.Impact;
+                        vm.stat.Add(s);
+                    }
+
+                    result.Add(vm);
+                }
+                return Json(result.ToDataSourceResult(request));
+            }
+        }
     }
 }

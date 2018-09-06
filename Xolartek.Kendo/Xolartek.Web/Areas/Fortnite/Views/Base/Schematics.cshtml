@@ -17,22 +17,21 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            @(Html.Kendo().Grid<HeroVM>().Name("Heroes")
+            @(Html.Kendo().Grid<SchematicVM>().Name("Schematics")
                     .Columns(columns =>
                     {
-                        columns.Bound(p => p.ImgUrl).Title(" ").ClientTemplate(@"<img src='" + @Url.Content("#:data.ImgUrl#") + "' style='width:80px;' />").Width(80);
-                        columns.Bound(p => p.Name).Title("Name").Width(80);
-                        columns.Bound(p => p.Rarity).Title("Rarity").Width(80);
-                        columns.Bound(p => p.Level).Title("Level").Width(80);
-                        columns.Bound(p => p.Stars).ClientTemplate("#=StarLabel(data.Stars)#").Width(80);
+                        columns.Bound(p => p.imgurl).Title(" ").ClientTemplate(@"<img src='" + @Url.Content("#:data.imgurl#") + "' style='width:80px;' />").Width(80);
+                        columns.Bound(p => p.name).Title("Name").Width(80);
+                        columns.Bound(p => p.level).Title("Level").Width(80);
+                        columns.Bound(p => p.stars).ClientTemplate("#=StarLabel(data.stars)#").Width(80);
                     })
                     .HtmlAttributes(new { style = "height: 500px;" })
                     .Sortable()
                     .Scrollable(s => s.Height("auto"))
                     .DataSource(dataSource => dataSource
                         .Ajax()
-                        .Model(model => model.Id(a => a.Id))
-                        .Read(read => read.Action("LoadHeroesList", "Base", Model))
+                        .Model(model => model.Id(a => a.id))
+                        .Read(read => read.Action("LoadSchematicList", "Base", Model))
                     )
             )
         </div>
