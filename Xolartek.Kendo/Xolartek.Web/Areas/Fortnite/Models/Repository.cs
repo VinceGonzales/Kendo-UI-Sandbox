@@ -64,6 +64,7 @@ namespace Xolartek.Web.Fortnite.Models
         {
             return db.Heroes
                 .Include(h => h.Picture)
+                .Include(h => h.Rarity)
                 .ToList();
         }
         public Xolartek.Core.Fortnite.Hero GetHero(int id)

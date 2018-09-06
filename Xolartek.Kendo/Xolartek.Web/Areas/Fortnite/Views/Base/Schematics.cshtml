@@ -1,8 +1,7 @@
 ﻿@using Xolartek.Web.Fortnite.Models
-
 @{
     Layout = "~/Areas/Fortnite/Views/Shared/_Layoutv2013.cshtml";
-    ViewBag.Title = "Fortnite";
+    ViewBag.Title = "Index";
 }
 @section header {
 
@@ -21,7 +20,7 @@
             @(Html.Kendo().Grid<HeroVM>().Name("Heroes")
                     .Columns(columns =>
                     {
-                        columns.Bound(p => p.ImgUrl).Title(" ").ClientTemplate(@"<img src='"+ @Url.Content("#:data.ImgUrl#") +"' style='width:80px;' />").Width(80);
+                        columns.Bound(p => p.ImgUrl).Title(" ").ClientTemplate(@"<img src='" + @Url.Content("#:data.ImgUrl#") + "' style='width:80px;' />").Width(80);
                         columns.Bound(p => p.Name).Title("Name").Width(80);
                         columns.Bound(p => p.Rarity).Title("Rarity").Width(80);
                         columns.Bound(p => p.Level).Title("Level").Width(80);
@@ -33,7 +32,7 @@
                     .DataSource(dataSource => dataSource
                         .Ajax()
                         .Model(model => model.Id(a => a.Id))
-                        .Read(read => read.Action("LoadHeroesList", "Home", Model))
+                        .Read(read => read.Action("LoadHeroesList", "Base", Model))
                     )
             )
         </div>
@@ -41,12 +40,12 @@
 </div>
 @section scripts {
     <script>
-    function StarLabel(data) {
-        var result = '';
-        for(var i=0;i<data;i++) {
-            result += "<span class='k-icon k-i-custom'></span>";
-        }
-        return result;
+function StarLabel(data) {
+    var result = '';
+    for(var i=0;i<data;i++) {
+        result += "<span class='k-icon k-i-custom'></span>";
     }
+    return result;
+}
     </script>
 }
