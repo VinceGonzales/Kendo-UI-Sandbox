@@ -147,6 +147,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Fortnite\Controllers\HomeController.cs" />
     <Compile Include="Areas\Fortnite\FortniteAreaRegistration.cs" />
+    <Compile Include="Areas\Fortnite\Models\SchematicVM.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
