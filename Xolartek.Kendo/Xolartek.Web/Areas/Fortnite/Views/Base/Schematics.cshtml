@@ -8,15 +8,10 @@
 }
 <div class="container">
     <div class="row">
-        <div class="col-12"><h4>Fortnite</h4></div>
+        <div class="col-md-12"><h4>Fortnite</h4></div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <div id="pnlMessage"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             @(Html.Kendo().Grid<SchematicVM>().Name("Schematics")
                     .Columns(columns =>
                     {
@@ -27,24 +22,56 @@
                     })
                     .HtmlAttributes(new { style = "height: 500px;" })
                     .Sortable()
+                    .Selectable(s => s.Mode(GridSelectionMode.Single))
                     .Scrollable(s => s.Height("auto"))
                     .DataSource(dataSource => dataSource
                         .Ajax()
                         .Model(model => model.Id(a => a.id))
                         .Read(read => read.Action("LoadSchematicList", "Base", Model))
                     )
+                    .Events(e => e.Change("onGridChange"))
             )
         </div>
+        <div class="col-md-6"><div id="pnlGrid"></div></div>
     </div>
 </div>
 @section scripts {
 <script>
+var statDTO = {
+    id: { type: "number" },
+    name: { type: "string" },
+    value: { type: "string" }
+};
+var statModel = kendo.data.Model.define({ id: "id", fields: statDTO });
 function StarLabel(data) {
     var result = '';
     for(var i=0;i<data;i++) {
         result += "<span class='k-icon k-i-custom'></span>";
     }
     return result;
+}
+function onGridChange(e) {
+    var grid = e.sender;
+    var selected = $.map(this.select(), function (item) {
+        return grid.dataItem(item);
+    });
+    var apiUrl = "http://localhost:50090/api/fortnite/schematic/" + selected[0].id;
+    window.dsStats = new kendo.data.DataSource({
+        autoSync: true,
+        transport: {
+            read: { dataType: "json", type: "get", url: apiUrl }
+        },
+        schema: { data: "stat", model: statModel }
+    });
+    $("#pnlGrid").kendoGrid({
+        dataSource: dsStats,
+        columns: [
+            { width: 80, field: "id", title: " ", hidden: true },
+            { width: 80, field: "value", title: "Impact" },
+            { width: 80, field: "name", title: "Description" }
+        ],
+        height: 500
+    });
 }
 </script>
 }

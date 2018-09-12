@@ -164,22 +164,21 @@ namespace Xolartek.Web.Fortnite.Controllers
                 return Request.CreateResponse(HttpStatusCode.OK, "success");
             }
         }
-        [Route("traits")]
+        [Route("schematic/{id:int}")]
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public List<SchematicVM> GetTraits(int id)
+        public SchematicVM GetTraits(int id)
         {
             using (Repository repo = new Repository(new XolarDatabase()))
             {
-                List<SchematicVM> result = new List<SchematicVM>();
                 List<TraitImpact> impacts = repo.GetTraitImpacts(id);
 
-                SchematicVM vm = new SchematicVM();
-                vm.id = impacts[0].SchematicId;
-                vm.name = impacts[0].Schematic.Name;
-                vm.level = impacts[0].Schematic.Level;
-                vm.stars = impacts[0].Schematic.Stars;
-                vm.description = impacts[0].Schematic.Description;
-                vm.stat = new List<stat>();
+                SchematicVM result = new SchematicVM();
+                result.id = impacts[0].SchematicId;
+                result.name = impacts[0].Schematic.Name;
+                result.level = impacts[0].Schematic.Level;
+                result.stars = impacts[0].Schematic.Stars;
+                result.description = impacts[0].Schematic.Description;
+                result.stat = new List<stat>();
 
                 foreach (TraitImpact ti in impacts)
                 {
@@ -187,9 +186,9 @@ namespace Xolartek.Web.Fortnite.Controllers
                     s.id = ti.Id;
                     s.name = ti.Trait.Description;
                     s.value = ti.Impact;
-                    vm.stat.Add(s);
+                    result.stat.Add(s);
                 }
-                result.Add(vm);
+                
                 return result;
             }
         }
