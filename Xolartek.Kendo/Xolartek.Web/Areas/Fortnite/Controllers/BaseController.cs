@@ -14,6 +14,22 @@ namespace Xolartek.Web.Fortnite.Controllers
         {
             return View();
         }
+        public ActionResult Hero(int id)
+        {
+            HeroVM vm = new HeroVM();
+            using (Repository repo = new Repository(new XolarDatabase()))
+            {
+                Xolartek.Core.Fortnite.Hero hero = repo.GetHero(id);
+                vm.Id = hero.Id;
+                vm.Name = hero.Name;
+                vm.Rarity = hero.Rarity.Description;
+                vm.ImgUrl = hero.Picture.Source;
+                vm.Stars = hero.Stars;
+                vm.Level = hero.Level;
+                vm.Description = hero.Description;
+            }
+            return View(vm);
+        }
         public ActionResult Schematics()
         {
             return View();

@@ -9,7 +9,7 @@ using Xolartek.Core.Fortnite;
 using Xolartek.ORM;
 using Xolartek.Web.Fortnite.Models;
 
-namespace Xolartek.Web.Areas.Fortnite.Controllers
+namespace Xolartek.Web.Fortnite.Controllers
 {
     [RoutePrefix("api/fortnite")]
     public class ServicesController : ApiController
@@ -62,6 +62,44 @@ namespace Xolartek.Web.Areas.Fortnite.Controllers
                 foreach (HeroVM hero in heroes)
                 {
                     repo.PostHero(hero);
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, "success");
+            }
+        }
+        [Route("subclass/{id:int}")]
+        public DataViewModel GetSkills(int id)
+        {
+            using (Repository repo = new Repository(new XolarDatabase()))
+            {
+                DataViewModel result = new DataViewModel();
+                result.Data = new List<SkillVM>();
+                List<Xolartek.Core.Fortnite.SubClass> skills = repo.GetSubClass(id);
+                result.Total = skills.Count;
+                foreach (Xolartek.Core.Fortnite.SubClass sub in skills)
+                {
+                    SkillVM skill = new SkillVM();
+                    skill.id = sub.Id;
+                    skill.name = sub.Skill.Name;
+                    skill.classname = sub.Name;
+                    skill.description = sub.Skill.Description;
+                    skill.issupport = sub.IsSupport;
+                    skill.istactical = sub.IsTactical;
+                    result.Data.Add(skill);
+                }
+                return result;
+            }
+        }
+        [HttpPost]
+        [Route("skills/{id:int}")]
+        public HttpResponseMessage AddSkills(List<SkillVM> skills, int id)
+        {
+            using (Repository repo = new Repository(new XolarDatabase()))
+            {
+                string name = repo.GetHero(id).Name;
+                foreach (SkillVM skill in skills)
+                {
+                    skill.heroname = name;
+                    repo.PostSkill(skill);
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, "success");
             }

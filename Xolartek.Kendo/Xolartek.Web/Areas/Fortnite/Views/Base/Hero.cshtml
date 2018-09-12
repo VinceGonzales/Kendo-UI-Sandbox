@@ -1,0 +1,35 @@
+﻿@using Xolartek.Web.Fortnite.Models
+@model HeroVM
+@{
+    Layout = "~/Areas/Fortnite/Views/Shared/_LayoutCurrent.cshtml";
+    ViewBag.Title = "Index";
+}
+@section header {
+<style>
+    .row-tactical {
+        background-color: aquamarine;
+    }
+</style>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12"><h4>Fortnite</h4></div>
+    </div>
+    <div class="row" id="pnlDetail">
+        <div class="col-md-12">
+            <img data-bind="attr: { src: ImgUrl, alt: Description }" style="width: 200px;" />
+            <div><strong>Name: </strong><label data-bind="text: Name"></label></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="pnlGrid"></div>
+        </div>
+    </div>
+</div>
+@section scripts {
+<script>
+    var dto = @Html.Raw(Json.Encode(Model));
+</script>
+<script type="text/javascript" src="~/Scripts/fortnite/hero.js"></script>
+}
