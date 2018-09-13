@@ -32,7 +32,11 @@ namespace Xolartek.Web.Fortnite.Controllers
         }
         public ActionResult Schematics()
         {
-            return View();
+            using (Repository repo = new Repository(new XolarDatabase()))
+            {
+                ViewData["WeaponTypes"] = repo.GetWeaponTypes();
+                return View();
+            }
         }
         public ActionResult LoadHeroesList([DataSourceRequest] DataSourceRequest request)
         {

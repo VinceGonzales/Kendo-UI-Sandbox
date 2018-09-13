@@ -28,8 +28,9 @@ namespace Xolartek.Web
                       "~/Scripts/Kendo/2018.2.620/kendo.all.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/kendoui").Include(
-                      "~/Scripts/kendo/2013.2.716/kendo.all.min.js",
-                      "~/Scripts/kendo/2013.2.716/kendo.aspnetmvc.min.js"));
+                "~/Scripts/kendo/2013.2.716/jquery.min.js",
+                "~/Scripts/kendo/2013.2.716/kendo.all.min.js",
+                "~/Scripts/kendo/2013.2.716/kendo.aspnetmvc.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",

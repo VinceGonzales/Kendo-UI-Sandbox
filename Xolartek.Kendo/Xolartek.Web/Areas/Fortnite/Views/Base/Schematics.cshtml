@@ -12,6 +12,18 @@
     </div>
     <div class="row">
         <div class="col-md-6">
+            @(Html.Kendo().DropDownList()
+                .Name("schematicType")
+                .OptionLabel(" ")
+                .DataTextField("Description")
+                .DataValueField("Id")
+                .BindTo((ViewData["WeaponTypes"] as List<Xolartek.Core.Fortnite.WeaponType>))
+                .HtmlAttributes(new { style = "width: 50%" })
+            )<br/><br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
             @(Html.Kendo().Grid<SchematicVM>().Name("Schematics")
                     .Columns(columns =>
                     {
