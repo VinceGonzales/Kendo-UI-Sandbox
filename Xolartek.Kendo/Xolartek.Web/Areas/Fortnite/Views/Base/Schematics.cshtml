@@ -19,6 +19,7 @@
                 .DataValueField("Id")
                 .BindTo((ViewData["WeaponTypes"] as List<Xolartek.Core.Fortnite.WeaponType>))
                 .HtmlAttributes(new { style = "width: 50%" })
+                .Events(e => { e.Select("onDDSelect"); })
             )<br/><br />
         </div>
     </div>
@@ -39,7 +40,7 @@
                     .DataSource(dataSource => dataSource
                         .Ajax()
                         .Model(model => model.Id(a => a.id))
-                        .Read(read => read.Action("LoadSchematicList", "Base", Model))
+                        .Read(read => read.Action("LoadSchematicList", "Base", new { id = (ViewData["weapontypeid"] as int?) }))
                     )
                     .Events(e => e.Change("onGridChange"))
             )
@@ -84,6 +85,14 @@ function onGridChange(e) {
         ],
         height: 500
     });
+}
+function onDDSelect(e) {
+    if (e.item) {
+        var dataItem = this.dataItem(e.item.index());
+        var grid = $("#Schematics").data("kendoGrid");
+        console.log(dataItem);
+        grid.dataSource.read({ "id": dataItem.Id });
+    }
 }
 </script>
 }

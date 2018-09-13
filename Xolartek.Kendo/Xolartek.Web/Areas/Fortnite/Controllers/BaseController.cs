@@ -30,11 +30,12 @@ namespace Xolartek.Web.Fortnite.Controllers
             }
             return View(vm);
         }
-        public ActionResult Schematics()
+        public ActionResult Schematics(int id = 0)
         {
             using (Repository repo = new Repository(new XolarDatabase()))
             {
                 ViewData["WeaponTypes"] = repo.GetWeaponTypes();
+                ViewData["weapontypeid"] = id;
                 return View();
             }
         }
@@ -59,12 +60,20 @@ namespace Xolartek.Web.Fortnite.Controllers
                 return Json(result.ToDataSourceResult(request));
             }
         }
-        public ActionResult LoadSchematicList([DataSourceRequest] DataSourceRequest request)
+        public ActionResult LoadSchematicList([DataSourceRequest] DataSourceRequest request, int id)
         {
             using (Repository repo = new Repository(new XolarDatabase()))
             {
                 List<SchematicVM> result = new List<SchematicVM>();
-                List<Schematic> schematics = repo.GetSchematics();
+                List<Schematic> schematics;
+                if (id > 0)
+                {
+                    schematics = repo.GetSchematics(id);
+                }
+                else
+                {
+                    schematics = repo.GetSchematics();
+                }
                 foreach (Schematic sch in schematics)
                 {
                     SchematicVM vm = new SchematicVM();
