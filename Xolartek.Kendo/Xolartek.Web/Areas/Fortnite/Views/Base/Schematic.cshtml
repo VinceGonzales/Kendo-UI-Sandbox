@@ -9,15 +9,42 @@
 }
 <div class="container">
     <div class="row">
-        <div class="col-12"><h4>Fortnite</h4><br/></div>
+        <div class="col-md-12"><h4>Fortnite</h4><br/></div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-12">
+            @Html.HiddenFor(model => model.Id)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
             <div class="form-group row">
                 <label class="col-md-4 col-form-label">Name</label>
-                <div class="col-md-7">
+                <div class="col-md-8">
                     @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Stars, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Stars, new { @class = "form-control", type = "number" })
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Level, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Level, new { @class = "form-control", type = "number" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = "5" })
             </div>
         </div>
     </div>
