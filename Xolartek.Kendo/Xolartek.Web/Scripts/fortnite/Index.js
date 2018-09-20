@@ -12,7 +12,7 @@ var skillModel = kendo.data.Model.define({ id: "Id", fields: skillDTO });
 function StarLabel(data) {
     var result = '';
     for (var i = 0; i < data; i++) {
-        result += "<span class='k-icon k-i-custom'></span>";
+        result += "<span class='fas fa-star fa-lg'></span>";
     }
     return result;
 }

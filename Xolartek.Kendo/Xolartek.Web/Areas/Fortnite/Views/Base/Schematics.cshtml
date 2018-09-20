@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 @section header {
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 }
 <div class="container">
     <div class="row">
@@ -59,7 +59,7 @@ var statModel = kendo.data.Model.define({ id: "id", fields: statDTO });
 function StarLabel(data) {
     var result = '';
     for(var i=0;i<data;i++) {
-        result += "<span class='k-icon k-i-custom'></span>";
+        result += "<span class='fas fa-star fa-sm'></span>";
     }
     return result;
 }

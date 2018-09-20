@@ -1,0 +1,30 @@
+﻿@using Xolartek.Web.Fortnite.Models
+@model RangedVM
+@{
+    ViewBag.Title = "Schematic";
+    Layout = "~/Views/Shared/_LayoutCurrent.cshtml";
+}
+@section header {
+
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12"><h4>Fortnite</h4><br/></div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label">Name</label>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+<script>
+    var apiUrl = '@Url.Action("Action", "Controller")';
+</script>
+<script type="text/javascript" src="~/Scripts/fortnite/schematic.js"></script>
+}

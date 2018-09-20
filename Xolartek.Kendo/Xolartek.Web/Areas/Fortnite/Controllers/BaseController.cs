@@ -39,6 +39,22 @@ namespace Xolartek.Web.Fortnite.Controllers
                 return View();
             }
         }
+        public ActionResult Schematic(int id)
+        {
+            using (Repository repo = new Repository(new XolarDatabase()))
+            {
+                RangedVM viewmodel = new RangedVM();
+                Schematic result = repo.GetSchematic(id);
+                viewmodel.Id = result.Id;
+                viewmodel.Name = result.Name;
+                viewmodel.Stars = result.Stars;
+                viewmodel.Level = result.Level;
+                viewmodel.Description = result.Description;
+                viewmodel.ImgUrl = result.Picture.Source;
+
+                return View(viewmodel);
+            }
+        }
         public ActionResult LoadHeroesList([DataSourceRequest] DataSourceRequest request)
         {
             using (Repository repo = new Repository(new XolarDatabase()))

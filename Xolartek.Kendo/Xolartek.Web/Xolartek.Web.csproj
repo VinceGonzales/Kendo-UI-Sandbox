@@ -171,6 +171,7 @@
     <Compile Include="Areas\Fortnite\Controllers\ServicesController.cs" />
     <Compile Include="Areas\Fortnite\FortniteAreaRegistration.cs" />
     <Compile Include="Areas\Fortnite\Models\DataViewModel.cs" />
+    <Compile Include="Areas\Fortnite\Models\RangedVM.cs" />
     <Compile Include="Areas\Fortnite\Models\SchematicVM.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -459,9 +460,11 @@
     <Content Include="Areas\Fortnite\Views\Base\Index.cshtml" />
     <Content Include="Areas\Fortnite\Views\Base\Schematics.cshtml" />
     <Content Include="Areas\Fortnite\Views\Base\Hero.cshtml" />
+    <Content Include="Areas\Fortnite\Views\Base\Schematic.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fortnite\hero.js" />
     <Content Include="Scripts\fortnite\index.js" />
+    <Content Include="Scripts\fortnite\schematic.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
