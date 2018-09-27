@@ -173,6 +173,8 @@
     <Compile Include="Areas\Fortnite\Models\DataViewModel.cs" />
     <Compile Include="Areas\Fortnite\Models\RangedVM.cs" />
     <Compile Include="Areas\Fortnite\Models\SchematicVM.cs" />
+    <Compile Include="Areas\Fortnite\Models\TraitImpactVM.cs" />
+    <Compile Include="Areas\Fortnite\Models\ViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -190,6 +192,10 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\120px-Active_powercell_icon.png" />
+    <Content Include="Content\images\120px-Blast_powder_icon.png" />
+    <Content Include="Content\images\40px-Active_powercell_icon.png" />
+    <Content Include="Content\images\40px-Blast_powder_icon.png" />
     <Content Include="Content\images\T-Constructor-HID-Constructor-007-SR-T01-L.png" />
     <Content Include="Content\images\T-Constructor-HID-Constructor-008-SR-T01-L.png" />
     <Content Include="Content\images\T-Constructor-HID-Constructor-013-SR-T01-L.png" />
@@ -203,6 +209,7 @@
     <Content Include="Content\images\T-Constructor-HID-Constructor-Myth02-SR-T01-L.png" />
     <Content Include="Content\images\T-Constructor-HID-Constructor-PlasmaDamage-Easter-SR-T01-L.png" />
     <Content Include="Content\images\T-Constructor-HID-Constructor-Sony-R-T01-L.png" />
+    <Content Include="Content\images\T-Icon-Weapons-SK-AutoHigh-Suppressed-L.png" />
     <Content Include="Content\images\T-Ninja-HID-Ninja-007-SR-T01-L.png" />
     <Content Include="Content\images\T-Ninja-HID-Ninja-009-F-Valentine-SR-T01-L.png" />
     <Content Include="Content\images\T-Ninja-HID-Ninja-010-SR-T01-L.png" />
