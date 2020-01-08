@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /Xolartek.Kendo/lib/KENDOUIMVC/2013.2.716.340
+/Xolartek.Kendo/Xolartek.Web/Properties/PublishProfiles/LocalWork.pubxml

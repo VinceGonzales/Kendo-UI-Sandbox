@@ -13,6 +13,7 @@ namespace Xolartek.Web.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Debug = Environment.MachineName;
             return View();
         }
 
